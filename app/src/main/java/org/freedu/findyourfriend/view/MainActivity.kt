@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        var navController = findNavController(R.id.fragmentContainerView)
+        val navController = findNavController(R.id.fragmentContainerView)
         binding.bottomBar.setupWithNavController(navController)
         binding.drawerNav.setupWithNavController(navController)
 
@@ -43,6 +43,13 @@ class MainActivity : AppCompatActivity() {
                     )
                     finish()
                 }
+                R.id.profileFragment -> {
+                    navController.navigate(R.id.profileFragment)
+
+                }
+                R.id.friendsFragment -> {
+                    navController.navigate(R.id.friendsFragment)
+                }
 
             }
             true
@@ -55,6 +62,12 @@ class MainActivity : AppCompatActivity() {
                         Intent(this, LoginActivity::class.java)
                     )
                     finish()
+                }
+                R.id.friendsFragment -> {
+                    navController.navigate(R.id.friendsFragment)
+                }
+                R.id.profileFragment -> {
+                    navController.navigate(R.id.profileFragment)
                 }
 
             }
