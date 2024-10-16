@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "45748795113",
+    "project_id": "findyourfriend-f19a4",
+    "storage_bucket": "findyourfriend-f19a4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:45748795113:android:ebaff465fe77ebd3642278",
+        "android_client_info": {
+          "package_name": "org.freedu.findyourfriend"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBFpkxu8hDhGVrQzTGn8ETvEN7Rw2QfcOk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
