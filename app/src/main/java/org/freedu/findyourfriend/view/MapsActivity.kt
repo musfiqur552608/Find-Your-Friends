@@ -34,6 +34,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         binding.btnZoomIn.setOnClickListener {
             mMap.animateCamera(CameraUpdateFactory.zoomIn())
+
         }
         binding.btnZoomOut.setOnClickListener {
             mMap.animateCamera(CameraUpdateFactory.zoomOut())
