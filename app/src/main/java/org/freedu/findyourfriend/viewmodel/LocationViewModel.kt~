@@ -24,8 +24,8 @@ class LocationViewModel : ViewModel() {
 
                     callback(locationName)
                 } else {
-                    val locationName = getLocationName(context,37.4220936, -122.083922)
-                    callback(locationName)
+                    // Handle failure or missing permissions
+                    callback("Location not available")
                 }
             })
     }

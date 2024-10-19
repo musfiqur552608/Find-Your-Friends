@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        auth = FirebaseAuth.getInstance()
+
         authenticationViewModel = ViewModelProvider(this).get(AuthenticationViewModel::class.java)
 
         binding.loginBtn.setOnClickListener {

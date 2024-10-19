@@ -1,0 +1,4 @@
+package org.freedu.findyourfriend.model
+
+class UserProfile {
+}

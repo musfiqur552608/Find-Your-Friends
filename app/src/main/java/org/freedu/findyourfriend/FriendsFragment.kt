@@ -84,7 +84,7 @@ class FriendsFragment : Fragment() {
     }
 
     private fun getLocation() {
-        locationViewModel.getLastLocation {
+        locationViewModel.getLastLocation(requireContext()) {
             // Save location to Firestore for the current user
             authenticationViewModel.getCurrentUserId().let { userId ->
                 firestoreViewModel.updateUserLocation(requireContext(),userId, it)

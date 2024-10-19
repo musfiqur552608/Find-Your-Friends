@@ -1,10 +1,15 @@
 package org.freedu.findyourfriend.viewmodel
 
 import android.content.Context
+import android.location.Address
+import android.location.Geocoder
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.maps.model.LatLng
 import com.google.firebase.firestore.FirebaseFirestore
 import org.freedu.findyourfriend.model.User
+import java.io.IOException
+import java.util.Locale
 
 class FirestoreViewModel: ViewModel() {
     private val firestore = FirebaseFirestore.getInstance()
@@ -104,12 +109,32 @@ class FirestoreViewModel: ViewModel() {
         usersCollection.document(userId).get()
             .addOnSuccessListener {
                 val location = it.getString("location") ?: ""
+                //val latLngSplit = location.split(", ")
+                //val latitude = latLngSplit[0].substringAfter("Lat: ").toDouble()
+                //val longitude = latLngSplit[1].substringAfter("Long: ").toDouble()
+                //val locationName = getLocationName(context,latitude, longitude)
                 callback(location)
             }
             .addOnFailureListener { e ->
                 Toast.makeText(context,e.message.toString(), Toast.LENGTH_SHORT).show()
                 callback("")
             }
+    }
+
+
+    private fun getLocationName(context: Context, latitude: Double, longitude: Double): String {
+        val geocoder = Geocoder(context, Locale.getDefault())
+        var locationName = "Unknown Location"
+        try {
+            val addressList: List<Address>? = geocoder.getFromLocation(latitude, longitude, 1)
+            if (!addressList.isNullOrEmpty()) {
+                val address: Address = addressList[0]
+                locationName = address.getAddressLine(0)  // Get the complete address as a single string
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+        return locationName
     }
 
 
